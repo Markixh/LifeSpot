@@ -1,0 +1,74 @@
+/* Комбинированный селектор - применяется ко всем элементам */
+header, footer, aside, body, .navbar, .video-container {
+    font-family: "Helvetica 65 Medium", sans-serif;
+}
+
+/* Для видеовставки */
+.video-container {
+    display: inline-block;
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+/* Стили панели навигации */
+.navbar p {
+    color: darkgray;
+    padding-left: 12%;
+}
+.navbar a {
+    text-decoration: none;
+}
+
+/* Стили панели навигации при наведении мышью */
+.navbar p:hover {
+    color: aliceblue;
+}
+
+/* Глобальные стили для хедеров на всём сайте */
+header {
+    color: black;
+    padding-left: 1%;
+    padding-top: 1.2%;
+}
+
+/* Сайд-бар */
+aside {
+    height: 100%;
+    width: 10%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 2%;
+}
+/* Фон и отступ для основной области */
+body {
+    padding-left: 11%;
+    background-color: #daf0ee;
+}
+/* Отступ для формы */
+form {
+    padding-left: 15px;
+}
+
+/* Фон формы при активности */
+.input:focus {
+    background-color:cornsilk;
+}
+
+/* Цвет заголовка */
+header h1 {
+    color: #44453f;
+}
+
+/* Стиль для нижнего колонтитула */
+footer {
+    position: absolute;
+    bottom: 0;
+    font-size: 0.8em;
+    line-height: 66%;
+    color: dimgrey;
+    padding-left: 15px;
+}
