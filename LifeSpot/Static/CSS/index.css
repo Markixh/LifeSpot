@@ -48,13 +48,9 @@ body {
     padding-left: 11%;
     background-color: #daf0ee;
 }
-/* Отступ для формы */
-form {
-    padding-left: 15px;
-}
 
 /* Фон формы при активности */
-.input:focus {
+input:focus {
     background-color:cornsilk;
 }
 

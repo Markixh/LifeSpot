@@ -7,7 +7,7 @@
     <script src="../Static/JS/index.js"></script>
 </head>
 
-<body>    
+<body>
     <header>
         <!--Заголовок страницы-->
         <h1>LifeSpot — прямые трансляции с улиц</h1>
@@ -18,10 +18,20 @@
     <!--Блок основной страницы-->
     <main>
         <hr>
-        <form>
-            <input class="input">
-            <button>Поиск</button>
-        </form>
+        <input type="text" oninput="
+        let inputText = document.getElementsByTagName('input')[0].value.toLowerCase();
+        let elements = document.getElementsByClassName('video-container');
+        for (let i = 0; i <= elements.length; i++ ){
+            let element = elements[i].getElementsByTagName('h3')[0].innerText;
+            console.log(element.toLowerCase().includes(inputText));
+            if (element.toLowerCase().includes(inputText)){
+                elements[i].style.display = 'inline-block';
+            }
+            else {
+                elements[i].style.display = 'none';
+            }
+        }
+        " size=50%>
         <hr>
         <div class="video-container">
             <iframe width=400 height="230" src="https://www.youtube.com/embed/srlpC5tmhYs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
