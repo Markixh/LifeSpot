@@ -1,25 +1,26 @@
-﻿let age = prompt("Пожалуйста, введите ваш возраст");
+﻿function handleSession() {
+    let age = prompt("Пожалуйста, введите ваш возраст");
 
-if (age >= 18) {
-    let now = new Date();
-    alert("Приветствуем на LifeSpot " + now);
+    if (age >= 18) {
+        let now = new Date();
+        alert("Приветствуем на LifeSpot " + now);
+    }
+    else {
+        alert("Наши трансляции не предназначены для лиц моложе 18 лет. Вы будете перенаправлены");
+        window.location.href = "http://www.google.com"
+    }
+
+    let session = new Map();
+
+    session.set('age', age)
+    session.set('userAgent', window.navigator.userAgent);
+    session.set('startDate', new Date().toLocaleString());
+
+    for (let result of session) {
+        console.log(result)
+    }
 }
-else {
-    alert("Наши трансляции не предназначены для лиц моложе 18 лет. Вы будете перенаправлены");
-    window.location.href = "http://www.google.com"
-}
-
-let session = new Map();
-
-session.set('age', age)
-session.set('userAgent', window.navigator.userAgent);
-session.set('startDate', new Date().toLocaleString());
-
-for (let result of session) {
-    console.log(result)
-}
-
-function filter() {
+function filterContent() {
     let inputText = document.getElementsByTagName('input')[0].value.toLowerCase();
     let elements = document.getElementsByClassName('video-container');
 
