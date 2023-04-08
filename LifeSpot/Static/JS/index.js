@@ -16,18 +16,21 @@
     session.set('userAgent', window.navigator.userAgent);
     session.set('startDate', new Date().toLocaleString());
 
+    return session;
+}
+
+function printSession(session) {
     for (let result of session) {
         console.log(result)
     }
 }
-function filterContent() {
-    let inputText = document.getElementsByTagName('input')[0].value.toLowerCase();
+
+function filterContent(inputData) {
+    let inputText = inputData;
     let elements = document.getElementsByClassName('video-container');
 
     for (let i = 0; i <= elements.length; i++) {
         let element = elements[i].getElementsByTagName('h3')[0].innerText;
-
-        console.log(element.toLowerCase().includes(inputText));
 
         if (element.toLowerCase().includes(inputText)) {
             elements[i].style.display = 'inline-block';
