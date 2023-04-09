@@ -5,7 +5,13 @@
     <title>LifeSpot</title>
     <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css">
     <script src="../Static/JS/index.js"></script>
-    <script>printSession(handleSession())</script>
+    <script>
+        let session = handleSession();
+        printSession();
+        setTimeout(function () {
+            alert("Пожалуйста, подпишитесь на наш Инстаграм")
+        }, 60000);
+    </script>
 </head>
 
 <body>
