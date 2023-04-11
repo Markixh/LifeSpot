@@ -1,4 +1,5 @@
-﻿function handleSession() {    
+﻿// Получает информацию о сессии
+function handleSession() {    
     let session = new Map();
 
     //session.set('age', checkAge())
@@ -8,6 +9,7 @@
     return session;
 }
 
+// Получает информацию о возрасте, если младше 18 лет, перенаправляет на другой сайт
 function checkAge() {
     let age = prompt("Пожалуйста, введите ваш возраст");
 
@@ -21,12 +23,15 @@ function checkAge() {
     }
     return age
 }
+
+// Выводи информацию о сессии в консоль
 function printSession() {
     for (let result of session) {
         console.log(result)
     }
 }
 
+// Фильтрует трансляции
 function filterContent(inputData) {
     let inputText = inputData;
     let elements = document.getElementsByClassName('video-container');

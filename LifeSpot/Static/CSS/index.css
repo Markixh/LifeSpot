@@ -59,6 +59,24 @@ header h1 {
     color: #44453f;
 }
 
+div h1, h3 {
+    color: #44453f;
+    padding-top: 1.2%;
+}
+
+/* Стиль для комментария*/
+.review-text {
+    display: block;
+    margin-top: 0.5em;
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+/* Отступ в основной области */
+main {
+    padding-left: 1%;
+}
+
 /* Стиль для нижнего колонтитула */
 footer {
     position: absolute;
