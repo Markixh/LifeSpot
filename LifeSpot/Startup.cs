@@ -1,4 +1,4 @@
-using System.IO;
+п»їusing System.IO;
 using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,7 +21,7 @@ namespace LifeSpot
 
             app.UseRouting();
 
-            // Загружаем отдельные элементы для вставки в шаблон: боковое меню и футер
+            // Р—Р°РіСЂСѓР¶Р°РµРј РѕС‚РґРµР»СЊРЅС‹Рµ СЌР»РµРјРµРЅС‚С‹ РґР»СЏ РІСЃС‚Р°РІРєРё РІ С€Р°Р±Р»РѕРЅ: Р±РѕРєРѕРІРѕРµ РјРµРЅСЋ Рё С„СѓС‚РµСЂ
             string headerHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "header.html"));
             string footerHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "footer.html"));
             string sideBarHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "sideBar.html"));
@@ -32,7 +32,7 @@ namespace LifeSpot
                 {
                     var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "index.html");
 
-                    // Загружаем шаблон страницы, вставляя в него элементы
+                    // Р—Р°РіСЂСѓР¶Р°РµРј С€Р°Р±Р»РѕРЅ СЃС‚СЂР°РЅРёС†С‹, РІСЃС‚Р°РІР»СЏСЏ РІ РЅРµРіРѕ СЌР»РµРјРµРЅС‚С‹
                     var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
                         .Replace("<!--HEADER-->", headerHtml)
                         .Replace("<!--SIDEBAR-->", sideBarHtml)
@@ -45,7 +45,7 @@ namespace LifeSpot
                 {
                     var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "about.html");
 
-                    // Загружаем шаблон страницы, вставляя в него элементы
+                    // Р—Р°РіСЂСѓР¶Р°РµРј С€Р°Р±Р»РѕРЅ СЃС‚СЂР°РЅРёС†С‹, РІСЃС‚Р°РІР»СЏСЏ РІ РЅРµРіРѕ СЌР»РµРјРµРЅС‚С‹
                     var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
                         .Replace("<!--HEADER-->", headerHtml)
                         .Replace("<!--SIDEBAR-->", sideBarHtml)
@@ -58,7 +58,7 @@ namespace LifeSpot
                 {
                     var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "testing.html");
 
-                    // Загружаем шаблон страницы, вставляя в него элементы
+                    // Р—Р°РіСЂСѓР¶Р°РµРј С€Р°Р±Р»РѕРЅ СЃС‚СЂР°РЅРёС†С‹, РІСЃС‚Р°РІР»СЏСЏ РІ РЅРµРіРѕ СЌР»РµРјРµРЅС‚С‹
                     var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
                         .Replace("<!--HEADER-->", headerHtml)
                         .Replace("<!--SIDEBAR-->", sideBarHtml)
