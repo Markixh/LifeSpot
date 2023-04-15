@@ -1,16 +1,5 @@
-﻿// Получает информацию о сессии
-function handleSession() {    
-    let session = new Map();
-
-    //session.set('age', checkAge())
-    session.set('userAgent', window.navigator.userAgent);
-    session.set('startDate', new Date().toLocaleString());
-
-    return session;
-}
-
-// Получает информацию о возрасте, если младше 18 лет, перенаправляет на другой сайт
-function checkAge() {
+﻿// Получает информацию о возрасте, если младше 18 лет, перенаправляет на другой сайт
+function getAge() {
     let age = prompt("Пожалуйста, введите ваш возраст");
 
     if (age >= 18) {
@@ -24,10 +13,38 @@ function checkAge() {
     return age
 }
 
+// Получает информацию о сессии
+function handleSession() {
+    let session = {};
+
+    if (sessionStorage.getItem("userAgent") != null) {
+        session.userAgent = sessionStorage.getItem("userAgent");
+    } else {
+        session.userAgent = window.navigator.userAgent;
+        sessionStorage.setItem("userAgent", session.userAgent);
+    }
+
+    if (sessionStorage.getItem("age") != null) {
+        session.age = sessionStorage.getItem("age");
+    } else {
+        session.age = getAge();
+        sessionStorage.setItem("age", session.age);
+    }
+
+    if (sessionStorage.getItem("startDate") != null) {
+        session.startDate = sessionStorage.getItem("startDate");
+    } else {
+        session.startDate = new Date().toLocaleString();
+        sessionStorage.setItem("startDate", session.startDate);
+    }
+
+    return session;
+}
+
 // Выводи информацию о сессии в консоль
 function printSession() {
-    for (let result of session) {
-        console.log(result)
+    for (let result in session) {
+        console.log(session[result])
     }
 }
 
