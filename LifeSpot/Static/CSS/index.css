@@ -65,12 +65,35 @@ div h1, h3 {
 }
 
 /* Стиль для комментария*/
-.review-text {
+.commit-text {
     display: block;
-    margin-top: 0.5em;
+    margin-top: 0.2em;
     padding-left: 1%;
     padding-top: 1%;
 }
+
+/* Стиль для комментария*/
+.commit-text p {
+    margin: 0.5em;
+}
+
+.button-like {
+    border: 0;
+    line-height: 1.5;
+    padding: 0px 5px;
+    font-size: 0.75rem;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 9px;
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+    .button-like:hover {
+        background-color: rgba(220, 220, 220, 1);
+    }
+
+    .button-like:active {
+        box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+    }
 
 /* Отступ в основной области */
 main {

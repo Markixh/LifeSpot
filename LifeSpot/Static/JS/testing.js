@@ -1,2 +1,7 @@
-﻿let elements = document.getElementsByTagName('*');
-alert(`На странице LifeSpot ${elements.length} элементов`);
+﻿function saveText() {
+    let inputText = document.getElementsByTagName('input')[0].value;
+
+    alert('Вы ввели: ' + inputText + '\nРанее вы вводили: ' + this.lastText);
+
+    this.lastText = inputText;
+}

@@ -7,40 +7,63 @@ let getCommit = () => { return prompt('Напишите комментарий')
 // Получает согласие на отзыв о комментарии
 let isGrade = () => { return confirm('Открыть доступ для оценки вашего комментария другими пользователями?'); }
 
-// Добавляет коментарий пользователя на страницу
-const addCommit = (getName, getCommit, isGrade) => {
-    let commit = {
-        userName: getName(),
-        text: getCommit(),
-        date: new Date().toLocaleString()
-    }
+// конструктор для комментария
+const comm = function (getName, getCommit) {
+    this.userName = getName(),
+    this.text = getCommit(),
+    this.date = new Date().toLocaleString()
+}
 
-    if (commit.userName == '' || commit.text == '') {
-        alert('Имя и комментарий не могут быть пустым');
+// Формируем комментарий
+const addCommit = () => {
+    let commit = new comm(getName, getCommit)
+
+    if (commit.userName == '' || commit.text == '' || commit.userName == null || commit.text == null) {
+        alert('Имя или комментарий не могут быть пустыми');
         return;
     }
 
     if (isGrade()) {
         let grade = new Object(commit);
         grade.rate = 0;
-        writeReview(grade);
+        writeСommit(grade);
         return;
     }
 
-    writeReview(commit);
+    writeСommit(commit);
 }
 
-const writeReview = review => {
+// Добавляем коментарий на страницу
+const writeСommit = сommit => {
     let likeCounter = '';
 
+    // Генерим идентификатор комментария.
+    let commentId = getId();
+
     // Для проверки, является ли объект отзывом, используем свойство hasOwnProperty
-    if (review.hasOwnProperty('rate')) {
-        likeCounter += '           <b style="color: chocolate">Рейтинг:</b>   ' + review.rate;
+    if (сommit.hasOwnProperty('rate')) {
+        likeCounter += `           <button id=${commentId} class="button-like" onclick="addLike(this.id)">❤️${сommit.rate}</button>   `;
     }
 
-    // Запишем результат
-    document.getElementsByClassName('commit')[0].innerHTML += '    <div class="review-text">\n' +
-        `<p> <i> <b>${review['author']}</b>  ${review['date']}${likeCounter}</i></p>` +
-        `<p>${review['text']}</p>` +
-        '</div>';
+    // Запишем коментария
+    document.getElementsByClassName('commit')[0].innerHTML += '    <div class="commit-text">\n' +
+        `<p> <i> <b>${сommit.userName}</b>  ${сommit.date}${likeCounter}</i></p>` +
+        `<p>${сommit.text}</p>` +
+        '</div><hr>';
+}
+
+// Формируем случайное число из диапазона 0 - max
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+// Создаем идентификатор для кнопки
+function getId() {
+    return getRandomInt(9999).toString() + '-' + getRandomInt(9999).toString() + '-' + getRandomInt(9999).toString();
+}
+
+// добавляем лайки
+function addLike(id) {
+    let textLike = document.getElementById(id).innerHTML;
+    let countLikes = Number(textLike.replace('❤️', ''));
+    document.getElementById(id).innerHTML = '❤️' + ++countLikes;
 }
