@@ -52,6 +52,7 @@ namespace LifeSpot
             string headerHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "header.html"));
             string footerHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "footer.html"));
             string sideBarHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "sidebar.html"));
+            string slideHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "slide.html"));
 
             builder.MapGet("/", async context =>
             {
@@ -88,10 +89,29 @@ namespace LifeSpot
                 var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
                     .Replace("<!--HEADER-->", headerHtml)
                     .Replace("<!--SIDEBAR-->", sideBarHtml)
-                    .Replace("<!--FOOTER-->", footerHtml);
+                    .Replace("<!--FOOTER-->", footerHtml)
+                    .Replace("<!--SLIDER-->", slideHtml);
 
                 await context.Response.WriteAsync(html.ToString());
             });
+        }
+
+        /// <summary>
+        ///  Маппинг JPG
+        /// </summary>
+        public static void MapJpg(this IEndpointRouteBuilder builder)
+        {
+            var jpgFiles = new[] { "london.jpg", "ny.jpg", "spb.jpg" };
+
+            foreach (var fileName in jpgFiles)
+            {
+                builder.MapGet($"/Static/Images/{fileName}", async context =>
+                {
+                    var jpgPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "Images", fileName);
+                    var jpg = await File.ReadAllBytesAsync(jpgPath);
+                    await context.Response.Body.WriteAsync(jpg);
+                });
+            }
         }
     }
 }

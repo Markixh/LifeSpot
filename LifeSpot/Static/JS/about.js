@@ -67,3 +67,5 @@ function addLike(id) {
     let countLikes = Number(textLike.replace('❤️', ''));
     document.getElementById(id).innerHTML = '❤️' + ++countLikes;
 }
+
+

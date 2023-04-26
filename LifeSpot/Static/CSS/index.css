@@ -15,6 +15,7 @@ header, footer, aside, body, .navbar, .video-container {
     color: darkgray;
     padding-left: 12%;
 }
+
 .navbar a {
     text-decoration: none;
 }
@@ -51,7 +52,7 @@ body {
 
 /* Фон формы при активности */
 input:focus {
-    background-color:cornsilk;
+    background-color: cornsilk;
 }
 
 /* Цвет заголовка */
@@ -64,6 +65,73 @@ div h1, h3 {
     padding-top: 1.2%;
 }
 
+/* Внешняя граница слайдера */
+.slide {
+    position: absolute;
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    float: left;
+    box-shadow: 5px 5px 5px black;
+    background-color: white;
+}
+
+/* Содержит картинку */
+.slide-content {
+    position: relative;
+}
+
+/* Точки индикаторы выбора картинки*/
+.point {
+    position: absolute;
+    left: 45%;
+    top: 90%;
+}
+
+/* Точка */
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color:lightgray;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+/* Внутренняя граница слайдера */
+.slide-border {
+    overflow: hidden;
+}
+
+/* Кнопки слайдера */
+.slide-button {
+    position: absolute;
+    top: 180px;
+    background-color: darkgray;
+    opacity: 0.5;
+    height: 60px;
+    width: 100px;
+    transition: opacity 0.5s;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    font-size: 50px;
+    font-weight: bolder;
+    z-index: 10;
+}
+
+    .slide-button.left {
+        left: 7px;
+    }
+
+    .slide-button.right {
+        left: 89.5%;
+    }
+
+    .slide-button:hover {
+        opacity: 0.7;
+    }
+
 /* Стиль для комментария*/
 .commit-text {
     display: block;
@@ -72,10 +140,10 @@ div h1, h3 {
     padding-top: 1%;
 }
 
-/* Стиль для комментария*/
-.commit-text p {
-    margin: 0.5em;
-}
+    /* Стиль для комментария*/
+    .commit-text p {
+        margin: 0.5em;
+    }
 
 /* Стиль для кнопки добавлентия лайков*/
 .button-like {
